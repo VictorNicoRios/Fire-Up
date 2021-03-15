@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 const mysql = require('mysql');
-const myConnection = require('express-myconnection')
+const myConnection = require('express-myconnection');
 
 // set app
 var app = express();
@@ -33,10 +33,30 @@ app.use('/api/',require('./src/routes/index'));
 app.use('/api/Dashboard',require('./src/routes/dashboard'));
 app.use('/api/lists',require('./src/routes/lists'));
 
+// Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
 //starting the server
 app.listen(app.get('port'), () => {
   console.log('server on port: 3000');
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
