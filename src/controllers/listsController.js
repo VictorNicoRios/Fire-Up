@@ -14,15 +14,13 @@ controller.list = (req, res) => {
   };
 
 controller.save = (req, res) => {
-    res.send('works2');
-    /*
     var data = req.body;
     req.getConnection((err, conn) => {
-        conn.query('INSERT INTO test SET ?', [data], (err, rows) => {
-            console.log(customer);
-            res.send('works');
+        conn.query('INSERT INTO customers SET ?', [data], (err, customers) => {
+            console.log(req.body);
+            res.send('works ');
         })
-    })*/
-}
+    })
+};
 
 module.exports = controller

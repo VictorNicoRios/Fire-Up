@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
+//var cors = require('cors')
 
 // set app
 var app = express();
@@ -28,6 +29,7 @@ app.use(myConnection(mysql, {
   database: 'Fire-Up-DB'
 }, 'single'));
 app.use(express.urlencoded({extended: false}));
+//app.use(cors())
 
 //Routes
 app.use('/api/',require('./src/routes/index'));

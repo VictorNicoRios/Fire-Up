@@ -18,3 +18,6 @@ CREATE TABLE customers(
 
 --search in tables--
 SELECT * FROM --table-- (customers)
+;
+--insert into table--
+INSERT INTO customers SET {CUSTOMER_FIRST_NAME: 'MANU', CUSTOMER_ADRESS: 'BLA', CUSTOMER_PASSWORD:'ASDFASDFASF'};
