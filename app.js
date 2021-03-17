@@ -26,7 +26,8 @@ app.use(myConnection(mysql, {
   password: 'password',
   port: 3306,
   database: 'Fire-Up-DB'
-}, 'single'))
+}, 'single'));
+app.use(express.urlencoded({extended: false}));
 
 //Routes
 app.use('/api/',require('./src/routes/index'));
@@ -35,26 +36,6 @@ app.use('/api/lists',require('./src/routes/lists'));
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
-
-//starting the server
-app.listen(app.get('port'), () => {
-  console.log('server on port: 3000');
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
