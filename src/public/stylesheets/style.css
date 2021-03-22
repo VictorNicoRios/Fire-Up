@@ -13,6 +13,9 @@ body{
 
 
 ul{
+  position: fixed;
+  top: 0;
+  width: 100%;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -58,6 +61,7 @@ li a:hover {
 
 
 .row{
+  margin-top: 50px;
   width: auto fit-content;
   padding-right: 1%;
 }
