@@ -11,7 +11,7 @@ const myConnection = require('express-myconnection');
 var app = express();
 
 // settings
-app.set('port', process.env.PORT || '3000');
+//app.set('port', process.env.PORT || '3000');
 app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'ejs');
 
@@ -21,13 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './src/public')));
-app.use(myConnection(mysql, {
+/*app.use(myConnection(mysql, {
   host: 'localhost',
   user: 'root',
   password: 'password',
   port: 3306,
   database: 'Fire-Up-DB'
-}, 'single'));
+}, 'single')); */
 app.use(express.urlencoded({extended: false}));
 //app.use(cors())
 
