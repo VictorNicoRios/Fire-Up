@@ -21,20 +21,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './src/public')));
-/*app.use(myConnection(mysql, {
+app.use(myConnection(mysql, {
   host: 'localhost',
   user: 'root',
   password: 'password',
   port: 3306,
   database: 'Fire-Up-DB'
-}, 'single')); */
+}, 'single')); 
 app.use(express.urlencoded({extended: false}));
 //app.use(cors())
 
 //Routes
-app.use('/api/',require('./src/routes/index'));
-app.use('/api/Dashboard',require('./src/routes/dashboard'));
-app.use('/api/lists',require('./src/routes/lists'));
+
+app.use('/api/',require('./src/routes/api'));
+app.use('/fire-up/',require('./src/routes/fire-up'));
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));

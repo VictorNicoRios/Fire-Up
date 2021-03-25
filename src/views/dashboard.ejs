@@ -1,6 +1,19 @@
 <% include partials/_header %>
-  
-<title>Dashboard</title>
+    <link href="/stylesheets/dashboardstyle.css" rel="stylesheet" >
 
+  <!--sección de panel de rutinas y playlists-->
+  <% include partials/_side-panel %>
+
+  <!--sección de contenido-->
+  <section class="row">
+    <h2>esto es el panel</h2>
+    <div id='contenido'></div>
+  </section>
+
+  <script>
+    $document.ready(()=>{
+      
+    })
+  </script>
 
 <% include partials/_footer %>

@@ -1,0 +1,37 @@
+<% include partials/_header %>
+    <title>Lists</title>
+
+    <section class="header">
+        <div>
+            <h1>My lists</h1>
+            <p>Welcome to Lists</p>
+        </div>
+    </section>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+
+        </div>
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/api/users/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="user_name" placeholder="Username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="user_password" placeholder="Password" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn primary">
+                            SAVE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/_footer %>

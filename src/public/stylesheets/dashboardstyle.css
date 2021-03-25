@@ -6,13 +6,12 @@
 body{
   background-color: #111;
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
+/*navbar top*/
 
-/*navbar*/
-
-
-ul{
+.top-navbar{
   position: fixed;
   top: 0;
   width: 100%;
@@ -23,26 +22,6 @@ ul{
   background-color: #222;
 }
 
-li {
-  float: right;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  background-color: #222;
-}
-
-
-li a:hover {
-  background-color: #000;
-}
-.active {
-  background-color: #4CAF50;
-}
 .logo{
   float: left;
   display: block;
@@ -52,18 +31,41 @@ li a:hover {
   text-decoration: none;
   background-color: #222;
 }
+
+.top-bar-item {
+  float: right;
+}
+
+.top-bar-item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #222;
+}
+
+.top-bar-item a:hover {
+  background-color: #000;
+}
 .active {
   background-color: #4CAF50;
 }
 
+/*content section*/
 
-/*body*/
-
-
-.row{
+.page-content{
   margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 0;
+  grid-auto-rows: minmax(100px, auto);
+}
+.row{
+  grid-column: 2 / 8;
   width: auto fit-content;
   padding-right: 1%;
+  padding-left: 1%;
 }
 .card{
   float: left;
@@ -85,7 +87,7 @@ li a:hover {
   margin: 0%;
   padding: 0%;
 }
-.footer{
+.card-footer{
   display: block;
   color: white;
   text-align: center;
@@ -95,4 +97,11 @@ li a:hover {
   padding: 0%;
 }
 
-/* --bootstrap section--*/
+/* --left panel section--*/
+
+.side-panel{
+  grid-column: 1 / 1;
+  width: auto fit-content;
+  padding-right: 1%;
+  padding-left: 1%;
+}
