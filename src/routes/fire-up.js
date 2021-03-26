@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const usersController = require('../controllers/usersController');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -17,8 +18,7 @@ router.get('/users', function(req, res) {
   });
 
 /* GET register form. */
-router.get('/register', function(req, res) {
-    res.render('user_register');
-  });
+router.get('/register', usersController.register);
+router.post('/register', usersController.save);
 
 module.exports = router;

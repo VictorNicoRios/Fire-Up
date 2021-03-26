@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const usersController = require('../controllers/usersController');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  //res.render('index');
-});
+/* GET A RAW USERS LIST FROM MYSQL. */
+router.get('/users', usersController.list);
+
 
 module.exports = router;
