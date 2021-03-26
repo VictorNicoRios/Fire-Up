@@ -56,27 +56,3 @@ SELECT exercises.name, users.name FROM exercises INNER JOIN users_exercises ON e
 
 /*SELECCIONA LOS NOMBRES DE LOS EJERCICIOS CREADOS POR UN ÚNICO USUARIO JUNTO EL NOMBRE DEL USUARIO
 SELECT exercises.name.name, user.name FROM exercises INNER JOIN users_exercises ON exercises.id = users_exercises.exercise_id WHERE users_exercises.user_id=1 INNER JOIN users on users_exercises.user_id = users.id;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

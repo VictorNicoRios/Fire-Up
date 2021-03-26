@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const usersController = require('../controllers/usersController');
+const dbControllers = require('../controllers/dbControllers');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -18,7 +18,7 @@ router.get('/users', function(req, res) {
   });
 
 /* GET register form. */
-router.get('/register', usersController.register);
-router.post('/register', usersController.save);
+router.get('/register', dbControllers.users_register);
+router.post('/register', dbControllers.users_save);
 
 module.exports = router;
