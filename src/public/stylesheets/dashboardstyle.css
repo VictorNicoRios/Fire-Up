@@ -77,11 +77,14 @@ body{
   background-color: #222;
   margin-left: 1%;
   margin-top: 1%;
-  cursor: pointer;
 }
 .card img{
   width: 100%;
   max-block-size: 250px;
+  box-sizing: border-box;
+}
+.card-show{
+  cursor: pointer;
 }
 .card h4 p{
   box-sizing: border-box;
@@ -98,6 +101,8 @@ body{
   padding: 0%;
 }
 .manage-element-container{
+  display: flex;
+  height: 50px;
   top: 0;
   width: 100%;
   list-style-type: none;
@@ -106,13 +111,14 @@ body{
   overflow: hidden;
 }
 .manage-element{
+  box-sizing: content-box;
   margin-top: 10px;
   float: left;
   display: block;
-  padding: 5px;
-  padding-bottom: 0;
   text-decoration: none;
   width: 25%;
+  max-width: 35px;
+  cursor: pointer;
 }
 
 /* --left panel section--*/
@@ -148,10 +154,9 @@ table tr td{
   cursor: pointer;
 }
 
-#add-item{
+#add-rutine-item{
   display: flex;
   height: auto;
-  min-height: auto;
   align-items: center;
   justify-content: center;
 

@@ -10,7 +10,34 @@
     </head>
 
 <body>
-
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-7">
+    
+            </div>
+    
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/api/rutines" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Nombre" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="description" placeholder="Descripción (Opcional)" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="template" placeholder="link de miniatura (Opcional)" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn primary">
+                                Guardar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--list default exercicies-->
     <div class="card">
         <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
@@ -43,8 +70,8 @@
         </div>
     </div>
     
-        <!--list user exercicies-->
-        <div class="card">
+    <!--list user exercicies-->
+    <div class="card">
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
             <div class="card-footer">
                 <h3><b>name</b></h3>
@@ -63,9 +90,9 @@
                     <img src="./images/trash-alt-solid.svg" alt="">
                 </div>
             </div>
-        </div>
-         <!--saved user exercicies-->
-         <div class="card">
+    </div>
+    <!--saved user exercicies-->
+    <div class="card">
             <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
             <div class="card-footer">
                 <h3><b>name</b></h3>
@@ -84,16 +111,18 @@
                     <img src="./images/trash-alt-solid.svg" alt="">
                 </div>
             </div>
-        </div>
+    </div>
 
 
 
 
-            <!--list default rutines-->
+    <!--list default rutines-->
     <div class="card">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
-        <div class="card-footer">
-            <h3><b>name</b></h3>
+        <div>
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
+            <div class="card-footer">
+                <h3><b>name</b></h3>
+            </div>
         </div>
         <div class="manage-element-container">
             <div class="manage-element">
@@ -107,9 +136,11 @@
 
     <!--saved default rutines-->
     <div class="card">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
-        <div class="card-footer">
-            <h3><b>name</b></h3>
+        <div>
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
+            <div class="card-footer">
+                <h3><b>name</b></h3>
+            </div>
         </div>
         <div class="manage-element-container">
             <div class="manage-element">
@@ -121,11 +152,13 @@
         </div>
     </div>
     
-        <!--list user rutines-->
-        <div class="card">
-            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
-            <div class="card-footer">
-                <h3><b>name</b></h3>
+    <!--list user rutines-->
+    <div class="card">
+            <div>
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
+                <div class="card-footer">
+                    <h3><b>name</b></h3>
+                </div>
             </div>
             <div class="manage-element-container">
                 <div class="manage-element">
@@ -142,12 +175,14 @@
                     <img src="./images/trash-alt-solid.svg" alt="">
                 </div>
             </div>
-        </div>
-         <!--saved user rutines-->
-         <div class="card">
-            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
-            <div class="card-footer">
-                <h3><b>name</b></h3>
+    </div>
+    <!--saved user rutines-->
+    <div class="card">
+            <div>
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Content">
+                <div class="card-footer">
+                    <h3><b>name</b></h3>
+                </div>
             </div>
             <div class="manage-element-container">
                 <div class="manage-element">
@@ -163,7 +198,7 @@
                     <img src="./images/trash-alt-solid.svg" alt="">
                 </div>
             </div>
-        </div>
+    </div>
 
 </body>
 </html>

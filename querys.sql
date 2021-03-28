@@ -35,6 +35,12 @@ SELECT * FROM exercises_rutines;
 
 
 /*		--- CONSULTAS COMPLEJAS ---		*/
+/*SELECCIONA LAS RUTINAS GUARDADAS POR UN USUARIO
+SELECT rutines.name FROM rutines INNER JOIN users_rutines ON rutines.id = users_rutines.rutine_id WHERE users_rutines.user_id =1 ;
+
+/*SELECCIONA LOS EJERCICIOS DE UNA RUTINA
+SELECT exercises.name FROM exercises INNER JOIN exercises_rutines on exercises.id = exercises_rutines.id WHERE exercises_rutines.rutine_id = 1;
+
 
 
 /*SELECCIONA LOS NOMBRES DE LAS RUTINAS CREADAS POR UN USUARIO
@@ -44,6 +50,7 @@ SELECT rutines.name FROM rutines INNER JOIN users_rutines ON rutines.id = users_
 SELECT exercises.name FROM exercises INNER JOIN exercises_rutines ON exercises.id = exercises_rutines.exercise_id WHERE exercises_rutines.rutine_id=1;
 
 
+
 /*SELECCIONA LOS NOMBRES DE LAS RUTINAS GUARDADAS POR TODOS LOS USUARIOS JUNTO AL NOMBRE DEL USUARIO CREADOR
 SELECT rutines.name, users.name FROM rutines INNER JOIN users_rutines ON rutines.id = users_rutines.rutine_id INNER JOIN users ON users_rutines.user_id = users.id;
 
@@ -51,8 +58,9 @@ SELECT rutines.name, users.name FROM rutines INNER JOIN users_rutines ON rutines
 SELECT rutines.name, user.name FROM rutines INNER JOIN users_rutines ON rutines.id = users_rutines.rutine_id WHERE users_rutines.user_id=1 INNER JOIN users on users_rutines.user_id = users.id;
 
 
+
 /*SELECCIONA LOS NOMBRES DE LOS EJERCICIOS CREADOS POR TODOS LOS USUARIOS JUNTO AL NOMBRE DEL USUARIO CREADOR
 SELECT exercises.name, users.name FROM exercises INNER JOIN users_exercises ON exercises.id = users_exercises.exercise_id INNER JOIN users on users_exercises.user_id = users.id;
 
 /*SELECCIONA LOS NOMBRES DE LOS EJERCICIOS CREADOS POR UN ÚNICO USUARIO JUNTO EL NOMBRE DEL USUARIO
-SELECT exercises.name.name, user.name FROM exercises INNER JOIN users_exercises ON exercises.id = users_exercises.exercise_id WHERE users_exercises.user_id=1 INNER JOIN users on users_exercises.user_id = users.id;
+SELECT exercises.name, user.name FROM exercises INNER JOIN users_exercises ON exercises.id = users_exercises.exercise_id WHERE users_exercises.user_id=1 INNER JOIN users on users_exercises.user_id = users.id;
