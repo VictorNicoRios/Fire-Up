@@ -12,6 +12,14 @@ router.get('/dashboard', function(req, res) {
     res.render('dashboard');
   });
 
+router.get('/dashboard/rutines', function(req, res) {
+  res.render('dashboard');
+});
+
+router.get('/dashboard/exercises', function(req, res) {
+  res.render('dashboard');
+});
+
 /* GET users list. */
 router.get('/users', function(req, res) {
     res.render('users');

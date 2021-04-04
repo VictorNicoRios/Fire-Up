@@ -1,1 +1,0 @@
-SELECT * FROM rutines INNER JOIN users ON rutines.rutine_creator = users.user_id where users.user_id=1;

@@ -59,14 +59,17 @@ body{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 0;
-  grid-auto-rows: minmax(100px, auto);
+  
 }
 .row{
+  flex: grid;
   grid-column: 2 / 8;
   width: auto fit-content;
   padding-right: 1%;
   padding-left: 1%;
+  grid-template-rows: repeat(1, 1fr);
 }
+
 .card{
   float: left;
   width: 24%;
@@ -154,7 +157,7 @@ table tr td{
   cursor: pointer;
 }
 
-#add-rutine-item{
+#add-Rutine-User{
   display: flex;
   height: auto;
   align-items: center;

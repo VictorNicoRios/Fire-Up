@@ -1,10 +1,11 @@
-var createError = require('http-errors');
+//var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
+
 
 // set app
 var app = express();
@@ -28,12 +29,16 @@ app.use(myConnection(mysql, {
 }, 'single')); 
 app.use(express.urlencoded({extended: false}));
 
+
+
 //Routes
 app.use('/api/',require('./src/routes/api'));
 app.use('/fire-up/',require('./src/routes/fire-up'));
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -42,6 +47,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

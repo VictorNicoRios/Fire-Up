@@ -186,19 +186,43 @@
             </div>
             <div class="manage-element-container">
                 <div class="manage-element">
-                    <img src="./images/bookmark-solid.svg" alt="">
+                    <img src="/images/bookmark-solid.svg" alt="">
                 </div>
                 <div class="manage-element">
-                    <img src="./images/info-circle-solid.svg" alt="">
+                    <img src="/images/info-circle-solid.svg" alt="">
                 </div>
-                <div class="manage-element">
-                    <img src="./images/pen-solid.svg" alt="">
-                </div>
-                <div class="manage-element">
-                    <img src="./images/trash-alt-solid.svg" alt="">
-                </div>
+                <div class="manage-element"><img src="/images/pen-solid.svg" alt=""></div><div class="manage-element"><img src="/images/trash-alt-solid.svg" alt=""></div>
             </div>
     </div>
 
 </body>
 </html>
+
+
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+
+        </div><div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/api/rutines/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Nombre" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="description" placeholder="Descripción (Opcional)" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="template" placeholder="link de miniatura (Opcional)" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="template" placeholder="link de miniatura (Opcional)" class="form-control">
+                        </div>
+                        <input type="hidden" name="rutine_creator" value='+user_id+'>
+                        <button type="submit" class="btn btn primary">Guardar</button>
+                    </form>
+                </div>
+            </div></div></div>
+</div>'

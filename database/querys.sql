@@ -35,8 +35,13 @@ SELECT * FROM exercises_rutines;
 
 
 /*		--- CONSULTAS COMPLEJAS ---		*/
+
+
 /*SELECCIONA LAS RUTINAS GUARDADAS POR UN USUARIO
 SELECT rutines.name FROM rutines INNER JOIN users_rutines ON rutines.id = users_rutines.rutine_id WHERE users_rutines.user_id =1 ;
+
+/*SELECCIONA TODAS LAS RUTINAS NO GUARDADAS POR EL USUARIO
+SELECT * FROM rutines LEFT JOIN users_rutines ON rutines.id = users_rutines.rutine_id WHERE users_rutines.rutine_id IS NULL;
 
 /*SELECCIONA LOS EJERCICIOS DE UNA RUTINA
 SELECT exercises.name FROM exercises INNER JOIN exercises_rutines on exercises.id = exercises_rutines.id WHERE exercises_rutines.rutine_id = 1;
@@ -64,3 +69,11 @@ SELECT exercises.name, users.name FROM exercises INNER JOIN users_exercises ON e
 
 /*SELECCIONA LOS NOMBRES DE LOS EJERCICIOS CREADOS POR UN ÚNICO USUARIO JUNTO EL NOMBRE DEL USUARIO
 SELECT exercises.name, user.name FROM exercises INNER JOIN users_exercises ON exercises.id = users_exercises.exercise_id WHERE users_exercises.user_id=1 INNER JOIN users on users_exercises.user_id = users.id;
+
+/*DELETES
+DELETE FROM rutines WHERE id =
+
+
+/*UPDATES
+
+UPDATE rutines SET name= ,description= , template= , WHERE id = 
