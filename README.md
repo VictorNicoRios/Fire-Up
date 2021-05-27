@@ -1,2 +1,2 @@
 # Fire-Up
-a Web App for excercies
+a Web App for basic rutines management
