@@ -1,21 +1,23 @@
-var user_id = 1;
+var user_id = 1; //root user
 
 $(document).ready(()=>{
-    document.getElementById("Rutines-Global").addEventListener("click", ShowRutines);
     document.getElementById("User-Saved-Rutines").addEventListener("click", ShowRutinesSaved);
+    document.getElementById("Rutines-Global").addEventListener("click", ShowRutinesSaved);
+    
 
     function ShowSavedRutinesList() {
         $.get('http://localhost:3000/api/rutines/saved/'+user_id+'',function(data){
-            data.forEach(rutines => {
-                $('#table').append("<tr><td id='User-Saved-Rutines' onclick='ShowExercisesInRutine("+rutines.id+")'>"+rutines.name+"</td></tr>");              
+            data.forEach(element => {
+                $('#table').append("<tr><td id='User-Saved-Rutines' onclick='ShowExercisesInRutine("+element.id+")'>"+element.name+"</td></tr>");              
             });
         });
     }
     ShowSavedRutinesList();
+    
     if(document.URL=='http://localhost:3000/fire-up/dashboard/rutines'){
         ShowRutines()
     }
-    if(document.URL=='http://localhost:3000/fire-up/dashboard/'){
+    if(document.URL=='http://localhost:3000/fire-up/dashboard'){
         document.getElementById("contenido").innerHTML = ""
     }
 })
@@ -23,20 +25,19 @@ $(document).ready(()=>{
 function ShowRutines() {
     
     /** --Muestra El título del contenido junto con el botón para agregar una nueva a la bd-- */
-    document.getElementById('contenido').innerHTML = '<h2>Todas las Rutinas</h2><br><div id="add-rutine-global" class="card"><img onclick="RegisterRutine()" id="add-item-image" src="/images/plus-circle-solid.svg" alt="images"><div><h3><b>Agregar nueva rutina a la BD</b></h3></div></div>';
+    document.getElementById('contenido').innerHTML = '<h2>Todas las Rutinas</h2><div id="add-rutine-global" class="card"><img onclick="RegisterRutine()" id="add-item-image" src="/images/plus-circle-solid.svg" alt="images"><div><h3><b>Agregar nueva rutina a la BD</b></h3></div></div>';
     
     /** --Muestra las rutinas ya guardadas-- */
-    $('#contenido').append("<div><h3>hola</h3></div>")
     $.get('http://localhost:3000/api/rutines/saved/'+user_id, function(data){
         data.forEach(element => {
-            $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "RemoveBookmark" class="manage-element"><img onclick="RemoveRutine('+element.id+')" src="/images/bookmark-solid.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement" class="manage-element"><img onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
+            $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img title="Nombre: '+element.name+'" src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "RemoveBookmark" class="manage-element"><img title="Remover rutina de Rutinas Guardadas" onclick="RemoveRutine('+element.id+')" src="/images/bookmark-solid.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img title="Id: '+element.id+' Description: '+element.description+'" src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement" class="manage-element"><img title="Modificar Rutina (nombre, descripción o portada)" onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img title="Eliminar completamente la Rutina" onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
         });
     });
     
-    /** --Muestralas rutinas no guardadas-- */
+    /** --Muestra las rutinas no guardadas-- */
     $.get('http://localhost:3000/api/rutines/unsaved/'+user_id, function(data){
         data.forEach(element => {
-            $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "AddBookmark" class="manage-element"><img onclick="SaveRutine('+element.id+')" src="/images/bookmark-regular.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement"  class="manage-element"><img onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
+            $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img title="Nombre: '+element.name+'" src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "AddBookmark" class="manage-element"><img title="Guardar rutina en Rutinas Guardadas" onclick="SaveRutine('+element.id+')" src="/images/bookmark-regular.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img title="Id: '+element.id+' Description: '+element.description+'" src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement"  class="manage-element"><img title="Modificar Rutina (Nombre, descripción o portada)" onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img title="Eliminar completamente la Rutina" onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
         })
     });
 }
@@ -44,10 +45,15 @@ function ShowRutines() {
 function ShowRutinesSaved() {
     document.getElementById('contenido').innerHTML = "";
     $.get('http://localhost:3000/api/rutines/saved/'+user_id, function(data){
-        data.forEach(element => {
-            $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "RemoveBookmark" class="manage-element"><img onclick="RemoveRutine('+element.id+')" src="/images/bookmark-solid.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement" class="manage-element"><img onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
+        if (Object.keys(data).length == 0){
+            document.getElementById('contenido').innerHTML = "No quedan rutinas guardadas"
+        }
+        else{
+            data.forEach(element => {
+                $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img title="Nombre: '+element.name+'" src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "RemoveBookmark" class="manage-element"><img title="Remover rutina de Rutinas Guardadas" onclick="RemoveRutine('+element.id+')" src="/images/bookmark-solid.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img title="Id: '+element.id+' Description: '+element.description+'" src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement" class="manage-element"><img title="Modificar Rutina (nombre, descripción o portada)" onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img title="Eliminar completamente la Rutina" onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
+            });
+        }
         });
-    });
 }
 
 function ShowRutinesUnsaved() {
@@ -57,21 +63,11 @@ function ShowRutinesUnsaved() {
         }
         else{
             data.forEach(element => {
-                $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "AddBookmark" class="manage-element"><img onclick="SaveRutine('+element.id+')" src="/images/bookmark-regular.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement"  class="manage-element"><img onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
+                $('#contenido').append('<div class="card"><div id="'+element.id+'" class="card-show" onClick="ShowExercisesInRutine('+element.id+')" ><img title="Nombre: '+element.name+'" src="'+element.template+'" alt="Content"><div class="card-footer"><h3><b>'+element.name+'</b></h3></div></div><div class="manage-element-container"><div id = "AddBookmark" class="manage-element"><img title="Guardar rutina en Rutinas Guardadas" onclick="SaveRutine('+element.id+')" src="/images/bookmark-regular.svg" alt=""></div><div id = "InfoElement" class="manage-element"><img title="Id: '+element.id+' Description: '+element.description +'" src="/images/info-circle-solid.svg" alt=""></div><div id = "UpdateElement"  class="manage-element"><img title="Modificar Rutina (nombre, descripción o portada)" onclick="UpdateRutine('+element.id+')" src="/images/pen-solid.svg" alt=""></div><div id = "DeleteElement" class="manage-element"><img title="Eliminar completamente la Rutina" onclick="DeleteRutine('+element.id+')" src="/images/trash-alt-solid.svg" alt=""></div></div></div>');
             })
         }
-        
     });
 }
-
-function ShowExercisesInRutine(rutineid) {
-    $.get("http://localhost:3000/api/exercises/r/"+rutineid+"",function(data){
-        document.getElementById('contenido').innerHTML = '<h2>Ejercicios de la rutina </h2>';
-        data.forEach(exercises => {
-            $('#contenido').append('<div class="card"><div class="card-show" id="'+exercises.id+'"><img src="'+exercises.template+'" alt="Content"><div class="card-footer"><h3><b>'+exercises.name+'</b></h3></div></div><div class="manage-element-container"><div class="manage-element"><img src="/images/plus-circle-solid.svg" alt=""></div><div class="manage-element"><img src="/images/info-circle-solid.svg" alt=""></div></div></div>');
-        });
-    });
-} 
 
 function RegisterRutine() {
     /**Formulario de registro de la rutina */
@@ -120,7 +116,7 @@ function UpdateRutine(rutineid) {
 }
 
 function DeleteRutine(rutineid) {
-    var confirm = window.confirm('Seguro que queres eliminar?')
+    var confirm = window.confirm('Seguro que queres eliminar completamente la rutina de la Base de Datos? Esta acción no se puede deshacer?')
     if (confirm==true){
         $.ajax({
             url: 'http://localhost:3000/api/rutines/delete/' + rutineid,
